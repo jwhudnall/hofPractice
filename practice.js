@@ -41,7 +41,7 @@ var multiplesOfFive = function(numbers) {
 
 // use _.filter to return the fruits array with only the desired fruit.
 var onlyOneFruit = function(fruits, targetFruit) {
-  fruits = _.filter(fruits, function(e) {
+  var fruits = _.filter(fruits, function(e) {
     return e === targetFruit;
   });
 
@@ -63,6 +63,7 @@ var cookiesOnly = function(desserts) {
     return e.type === 'cookie';
   });
 
+  return filteredArr;
 };
 
 /*
@@ -73,7 +74,9 @@ var cookiesOnly = function(desserts) {
 
 // return the total price of all products.
 var sumTotal = function(products) {
-
+  return _.reduce(products, function(accumulator, item, index, collection) {
+    return accumulator + parseFloat(item.price.slice(1));
+  }, 0);
 };
 
 // return an object consisting of dessert types and how many of each.
