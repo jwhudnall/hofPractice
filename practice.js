@@ -41,7 +41,11 @@ var multiplesOfFive = function(numbers) {
 
 // use _.filter to return the fruits array with only the desired fruit.
 var onlyOneFruit = function(fruits, targetFruit) {
+  fruits = _.filter(fruits, function(e) {
+    return e === targetFruit;
+  });
 
+  return fruits;
 };
 
 // use _.filter to return the fruits array with only fruits
