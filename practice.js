@@ -114,8 +114,22 @@ var ninetiesKid = function(movies) {
 // runtime than your time limit.
 // timeLimit is an integer representing a number of minutes.
 var movieNight = function(movies, timeLimit) {
+  // Input: array
+  // Output: boolean
 
+  // Declare boolean variable tracker set to false
+  var isWithinTimeLimit = false;
+  _.reduce(movies, function(acc, item, index, collection) {
+    var runTime = item.runtime;
+    if (runTime < timeLimit) {
+      isWithinTimeLimit = true;
+    }
+    return item;
+  }, movies[0]);
+
+  return isWithinTimeLimit;
 };
+
 
 /*
  *
