@@ -92,7 +92,22 @@ var dessertCategories = function(desserts) {
 // movies that came out between 1990 and 2000.
 // TIP: use an array as your accumulator - don't push to an external array!
 var ninetiesKid = function(movies) {
+  // Input: array
+  // Output: array
 
+  // Iterate through movies (array of objects)
+    // if release year between 1990 and 2000, add movie to array
+  // return array
+  var isInRange = function(obj) {
+    return obj.releaseYear >= 1990 && obj.releaseYear <= 2000;
+  };
+
+  return _.reduce(movies, function(acc, item) {
+    if (isInRange(item)) {
+      acc.push(item.title);
+    }
+    return acc;
+  }, []);
 };
 
 // return an boolean stating if there exists a movie with a shorter
