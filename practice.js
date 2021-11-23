@@ -183,4 +183,13 @@ var glutenFree = function(desserts) {
 */
 var applyCoupon = function(groceries, coupon) {
 
+  _.map(groceries, function(item, index, collection) {
+    var listPrice = parseFloat(item.price.slice(1));
+    var discount = Math.round((listPrice * 100) * coupon) / 100;
+    var salesPrice = listPrice - discount;
+    salesPrice = '$' + salesPrice.toString();
+    return item.salePrice = salesPrice;
+  });
+
+  return groceries;
 };
